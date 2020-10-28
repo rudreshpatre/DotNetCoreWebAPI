@@ -11,12 +11,14 @@ namespace LandonApi.Controllers
     [ApiController]
     public class RootController : ControllerBase
     {
-        [HttpGet(Name = nameof(GetRoot))]
+       
+        [HttpGet(Name =nameof(GetRoot))]        
         public IActionResult GetRoot() 
         {
             var response = new
             {
-                href = Url.Link(nameof(GetRoot), null)
+                href = Url.Link(nameof(GetRoot), null),
+                rooms = Url.Link(nameof(RoomsController.GetRooms),null)
             };
 
             return Ok(response);
